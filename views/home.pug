@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title= title
+    style.
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      a {
+        font-size: 16px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 80%;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: pink;
+        font-weight: bold;
+      }
+  body
+    h1 Custom Object Table
+
+    a(href='/update-cobj') Add/Update this table
+    br
+    br
+
+    if records.length
+      table
+        thead
+          tr
+            th Name
+            th Race
+            th Birth Place
+        tbody
+          each record in records
+            tr
+              td= record.properties.name
+              td= record.properties.race
+              td= record.properties.birth_place
+    else
+      p No records found.
